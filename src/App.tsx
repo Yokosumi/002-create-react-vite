@@ -1,6 +1,7 @@
 import employees from "./data/employees.json";
 import dayjs from "dayjs";
 import * as config from "./config";
+import cityscape from "./images/cityscape.jpg";
 
 function App() {
 	const title = "Employee Directory";
@@ -10,9 +11,10 @@ function App() {
 		<>
 			<h1 className="text-3xl mb-3">{title}</h1>
 			<p>{introText}</p>
+			<img src={cityscape} />
 			<hr />
 			<div>
-				{employees.map((employee) => {
+				{employees.map((_employee) => {
 					return (
 						<div>
 							{employees.map((employee) => {
