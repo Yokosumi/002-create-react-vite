@@ -1,5 +1,6 @@
 import employees from "./data/employees.json";
 import dayjs from "dayjs";
+import * as config from "./config";
 
 function App() {
 	const title = "Employee Directory";
