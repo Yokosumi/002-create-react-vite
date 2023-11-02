@@ -9,11 +9,25 @@ function App() {
 			<h1 className="text-3xl mb-3">{title}</h1>
 			<p>{introText}</p>
 			<hr />
-			<ul>
+			<div>
 				{employees.map((employee) => {
-					return <li>{employee.firstName}</li>;
+					return (
+						<div
+							className="bg-slate-700 mt-3 p-3"
+							key={employee.employeeID}
+						>
+							<h2 className="font-bold text-slate-200">
+								{employee.firstName} {employee.lastName}
+							</h2>
+							<p className="italic text-slate-200">
+								{" "}
+								{employee.title}{" "}
+							</p>
+							<p className="text-slate-200"> {employee.notes} </p>
+						</div>
+					);
 				})}
-			</ul>
+			</div>
 		</>
 	);
 }
