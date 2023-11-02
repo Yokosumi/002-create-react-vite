@@ -1,4 +1,5 @@
 import employees from "./data/employees.json";
+import dayjs from "dayjs";
 
 function App() {
 	const title = "Employee Directory";
@@ -12,18 +13,39 @@ function App() {
 			<div>
 				{employees.map((employee) => {
 					return (
-						<div
-							className="bg-slate-700 mt-3 p-3"
-							key={employee.employeeID}
-						>
-							<h2 className="font-bold text-slate-200">
-								{employee.firstName} {employee.lastName}
-							</h2>
-							<p className="italic text-slate-200">
-								{" "}
-								{employee.title}{" "}
-							</p>
-							<p className="text-slate-200"> {employee.notes} </p>
+						<div>
+							{employees.map((employee) => {
+								return (
+									<div className="bg-slate-800 mt-3 text-slate-200 p-3 rounded">
+										<div className="flex gap-3">
+											<img
+												className="w-28 rounded"
+												src={`images/employees/employee_${employee.employeeID}.jpg`}
+											/>
+											<div>
+												<p>
+													{employee.firstName}{" "}
+													{employee.lastName}
+												</p>
+												<p className="text-yellow-200">
+													{employee.title}
+												</p>
+												<p className="text-red-500">
+													{employee.address.phone}
+												</p>
+												<p className="text-red-500">
+													{dayjs(
+														employee.birthDate
+													).format("MMM DD, YYYY")}
+												</p>
+											</div>
+										</div>
+										<div className="mt-2 italic text-slate-400">
+											{employee.notes}
+										</div>
+									</div>
+								);
+							})}
 						</div>
 					);
 				})}
