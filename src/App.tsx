@@ -14,52 +14,40 @@ function App() {
 			<img src={cityscape} />
 			<hr />
 			<div>
-				{employees.map((_employee) => {
+				{employees.map((employee) => {
 					return (
-						<div>
-							{employees.map((employee) => {
-								return (
-									<div className="bg-slate-800 mt-3 text-slate-200 p-3 rounded">
-										<div className="flex gap-3">
-											<img
-												className="w-28 rounded"
-												src={`images/employees/employee_${employee.employeeID}.jpg`}
-											/>
-											<div>
-												<p>
-													{employee.firstName}{" "}
-													{employee.lastName}
-												</p>
-												<p className="text-yellow-200">
-													{employee.title}
-												</p>
+						<div className="bg-slate-800 mt-3 text-slate-200 p-3 rounded">
+							<div className="flex gap-3">
+								<img
+									className="w-28 rounded"
+									src={`images/employees/employee_${employee.employeeID}.jpg`}
+								/>
+								<div>
+									<p>
+										{employee.firstName} {employee.lastName}
+									</p>
+									<p className="text-yellow-200">
+										{employee.title}
+									</p>
 
-												{config.accessGroup ===
-													"administrators" && (
-													<>
-														<p className="text-red-500">
-															{
-																employee.address
-																	.phone
-															}
-														</p>
-														<p className="text-red-500">
-															{dayjs(
-																employee.birthDate
-															).format(
-																"MMM DD, YYYY"
-															)}
-														</p>
-													</>
-												)}
-											</div>
-										</div>
-										<div className="mt-2 italic text-slate-400">
-											{employee.notes}
-										</div>
-									</div>
-								);
-							})}
+									{config.accessGroup ===
+										"administrators" && (
+										<>
+											<p className="text-red-500">
+												{employee.address.phone}
+											</p>
+											<p className="text-red-500">
+												{dayjs(
+													employee.birthDate
+												).format("MMM DD, YYYY")}
+											</p>
+										</>
+									)}
+								</div>
+							</div>
+							<div className="mt-2 italic text-slate-400">
+								{employee.notes}
+							</div>
 						</div>
 					);
 				})}
