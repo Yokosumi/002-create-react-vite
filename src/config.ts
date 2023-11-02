@@ -1,1 +1,1 @@
-export const accessGroup = "members";
+export let accessGroup = "administrators";

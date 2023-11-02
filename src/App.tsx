@@ -31,14 +31,25 @@ function App() {
 												<p className="text-yellow-200">
 													{employee.title}
 												</p>
-												<p className="text-red-500">
-													{employee.address.phone}
-												</p>
-												<p className="text-red-500">
-													{dayjs(
-														employee.birthDate
-													).format("MMM DD, YYYY")}
-												</p>
+
+												{config.accessGroup ===
+													"administrators" && (
+													<>
+														<p className="text-red-500">
+															{
+																employee.address
+																	.phone
+															}
+														</p>
+														<p className="text-red-500">
+															{dayjs(
+																employee.birthDate
+															).format(
+																"MMM DD, YYYY"
+															)}
+														</p>
+													</>
+												)}
 											</div>
 										</div>
 										<div className="mt-2 italic text-slate-400">
